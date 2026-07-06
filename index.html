@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planner Pro JS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <strong>Planner Pro</strong>
+    <nav>
+      <a href="#board">Quadro</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#reports">Relatórios</a>
+    </nav>
+    <button id="resetBtn">Restaurar demo</button>
+  </aside>
+
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Gerenciamento de projetos</p>
+      <h1>Roadmap, tarefas e capacidade em uma única tela</h1>
+      <p>Um planner avançado em JavaScript puro com Kanban, timeline, filtros, métricas e persistência local.</p>
+    </header>
+
+    <section class="toolbar">
+      <input id="searchInput" type="search" placeholder="Buscar tarefa, projeto ou responsável" />
+      <select id="projectFilter">
+        <option value="all">Todos os projetos</option>
+      </select>
+      <select id="priorityFilter">
+        <option value="all">Todas prioridades</option>
+        <option value="alta">Alta</option>
+        <option value="media">Média</option>
+        <option value="baixa">Baixa</option>
+      </select>
+      <button id="exportBtn">Exportar JSON</button>
+    </section>
+
+    <section class="metrics" id="metrics"></section>
+
+    <section class="layout">
+      <section class="panel form-panel">
+        <p class="eyebrow">Nova tarefa</p>
+        <h2>Adicionar item</h2>
+        <form id="taskForm">
+          <label>Título <input name="title" required minlength="3" placeholder="Ex: Criar tela de checkout" /></label>
+          <label>Projeto <input name="project" required placeholder="Ex: E-commerce" /></label>
+          <label>Responsável <input name="assignee" required placeholder="Ex: Wesley" /></label>
+          <div class="split">
+            <label>Prioridade
+              <select name="priority">
+                <option value="alta">Alta</option>
+                <option value="media" selected>Média</option>
+                <option value="baixa">Baixa</option>
+              </select>
+            </label>
+            <label>Status
+              <select name="status">
+                <option value="backlog">Backlog</option>
+                <option value="doing">Em execução</option>
+                <option value="review">Revisão</option>
+                <option value="done">Concluído</option>
+              </select>
+            </label>
+          </div>
+          <div class="split">
+            <label>Estimativa/h <input name="estimate" type="number" min="1" value="4" /></label>
+            <label>Prazo <input name="dueDate" type="date" required /></label>
+          </div>
+          <label>Descrição <textarea name="description" rows="4" placeholder="Contexto, regra de negócio, risco ou critério de aceite"></textarea></label>
+          <button type="submit">Criar tarefa</button>
+        </form>
+      </section>
+
+      <section class="workspace">
+        <section class="board" id="board"></section>
+
+        <section class="panel" id="timeline">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Timeline</p>
+              <h2>Próximos prazos</h2>
+            </div>
+          </div>
+          <div class="timeline" id="timelineList"></div>
+        </section>
+
+        <section class="panel" id="reports">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Capacidade</p>
+              <h2>Carga por responsável</h2>
+            </div>
+          </div>
+          <div class="capacity" id="capacity"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <template id="taskTemplate">
+    <article class="task" draggable="true">
+      <div class="task-top">
+        <span class="badge"></span>
+        <button class="delete">×</button>
+      </div>
+      <h3></h3>
+      <p></p>
+      <footer>
+        <span class="assignee"></span>
+        <span class="due"></span>
+      </footer>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
