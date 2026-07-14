@@ -1,14 +1,14 @@
-# Planner Pro JS
+# Planejador Pro JS
 
 Aplicação front-end avançada para gerenciamento de projetos, feita com HTML, CSS e JavaScript puro.
 
 ## Funcionalidades
 
-- Quadro Kanban com drag and drop
+- Quadro Kanban com arrastar e soltar
 - Cadastro de tarefas
 - Filtros por projeto, prioridade e busca
 - Métricas de tarefas, horas estimadas e risco
-- Timeline de próximos prazos
+- Linha do tempo de próximos prazos
 - Relatório de capacidade por responsável
 - Exclusão de tarefas
 - Exportação JSON
@@ -24,6 +24,6 @@ Abra o arquivo `index.html` no navegador.
 - HTML5
 - CSS3
 - JavaScript
-- Drag and Drop API
+- API de arrastar e soltar
 - localStorage
 - Blob API

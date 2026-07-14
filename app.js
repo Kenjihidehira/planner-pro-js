@@ -30,7 +30,7 @@ const demoTasks = [
   },
   {
     id: "task-3",
-    title: "Refatorar dashboard financeiro",
+    title: "Refatorar painel financeiro",
     project: "Finanças",
     assignee: "Marcos",
     priority: "media",
