@@ -1,0 +1,12 @@
+{
+  "name": "planner-pro-js",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check storage.js && node --check app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

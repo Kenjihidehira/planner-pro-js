@@ -79,11 +79,11 @@ let tasks = loadTasks();
 let draggedId = null;
 
 function loadTasks() {
-  return JSON.parse(localStorage.getItem("planner-pro-tasks") || "null") || demoTasks;
+  return SafeStorage.read("planner-pro-tasks", demoTasks, Array.isArray);
 }
 
 function saveTasks() {
-  localStorage.setItem("planner-pro-tasks", JSON.stringify(tasks));
+  SafeStorage.write("planner-pro-tasks", tasks);
 }
 
 function filteredTasks() {
